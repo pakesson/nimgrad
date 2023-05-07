@@ -3,9 +3,9 @@ import std/sequtils
 import std/strformat
 import std/sugar
 
-import datasets
-import mlp
-import value
+import nimgrad
+import nimgrad/mlp
+import nimgrad/datasets
 
 # This example is based on
 #   https://github.com/karpathy/micrograd/blob/master/demo.ipynb
@@ -31,8 +31,10 @@ when isMainModule:
       regLoss = toSeq(m.parameters()).map(it => it*it).foldl(a + b) * alpha
       totalLoss = dataLoss + regLoss
 
-      correctScores = zip(yv, scores).map(it => (if (it[0].value > 0) == (it[1].value > 0): 1 else: 0))
-      accuracy = correctScores.foldl(a + b).float * (1.0 / correctScores.len.float)
+      correctScores = zip(yv, scores).map(
+        it => (if (it[0].value > 0) == (it[1].value > 0): 1 else: 0))
+      accuracy = correctScores.foldl(a + b).float *
+        (1.0 / correctScores.len.float)
     result = (totalLoss, accuracy)
 
   var (totalLoss, accuracy) = loss()

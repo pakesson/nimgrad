@@ -53,7 +53,8 @@ proc `/`*(x, y: Value): Value =
   x * (y^(-1))
 
 proc relu*(x: Value): Value =
-  result = Value(value: (if x.value < 0.0: 0.0 else: x.value), grad: 0.0, prev: toHashSet([x]))
+  result = Value(value: (if x.value < 0.0: 0.0 else: x.value), grad: 0.0,
+    prev: toHashSet([x]))
   result.backproc = proc(self: Value) =
     x.grad += (if self.value > 0: self.grad else: 0.0)
 

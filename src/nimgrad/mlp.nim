@@ -28,4 +28,5 @@ proc zeroGrad*(self: MLP) =
 
 proc newMLP*(n: seq[int], nonlinear: bool = false): MLP =
   # TODO: Make this more readable
-  result = MLP(layers: toSeq(countup(0, n.len()-2)).map(i => newLayer(n[i], n[i+1], i < n.len()-2)))
+  result = MLP(layers: toSeq(countup(0, n.len()-2)).map(
+    i => newLayer(n[i], n[i+1], i < n.len()-2)))
