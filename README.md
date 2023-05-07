@@ -1,4 +1,12 @@
-# Example: Moons
+# Nimgrad
+
+A Nim implementation of Andrej Karpathy's [micrograd](https://github.com/karpathy/micrograd)
+engine.
+
+Nimgrad implements backpropagation (reverse-mode automatic differentiation)
+with a dynamic computational graph for scalar values.
+
+## Example: Moons
 
 ```
 $ ./example_moons

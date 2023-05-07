@@ -7,6 +7,8 @@ import datasets
 import mlp
 import value
 
+# This example is based on
+#   https://github.com/karpathy/micrograd/blob/master/demo.ipynb
 when isMainModule:
   randomize()
 
