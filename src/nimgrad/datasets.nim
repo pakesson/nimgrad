@@ -5,7 +5,7 @@ import std/sugar
 
 proc linspace*(start: float64, stop: float64, n: int): seq[float64] =
   let step: float64 = (stop - start) / n.float
-  result = toSeq(countup(0, n-1)).map(x => x.float*step)
+  result = toSeq(countup(0, n-1)).map(x => start + x.float*step)
 
 # Based on make_moons from scikit-learn
 #   https://github.com/scikit-learn/scikit-learn/blob/27cf2dd22a0399247bff8281bb4e1c75a8cbc532/sklearn/datasets/_samples_generator.py#L789
