@@ -3,7 +3,7 @@ import std/random
 import std/sequtils
 import std/sugar
 
-proc linspace(start: float64, stop: float64, n: int): seq[float64] =
+proc linspace*(start: float64, stop: float64, n: int): seq[float64] =
   let step: float64 = (stop - start) / n.float
   result = toSeq(countup(0, n-1)).map(x => x.float*step)
 

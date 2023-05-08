@@ -24,7 +24,7 @@ proc forward*(self: Neuron, input: seq[Value]): Value =
     result = relu(result)
 
 # Generate a seq[Value] with random values between -1 and 1
-proc randn(n: int): seq[Value] =
+proc randn*(n: int): seq[Value] =
   newSeqWith(n, Value(value: rand(2.0)-1.0))
 
 # Create a new Neuron with n weights
