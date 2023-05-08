@@ -63,7 +63,7 @@ proc backward*(self: Value) =
     topo: seq[Value]
     visited: HashSet[Value]
   proc buildTopo(v: Value) =
-    if v notin topo:
+    if v notin visited:
       visited.incl(v)
       for child in v.prev:
         buildTopo(child)
