@@ -17,11 +17,12 @@ when isMainModule:
 
   let (X, y) = makeMoons(100, 0.1)
 
-  proc loss(): (Value, float64) =
-    let
+  let
       Xv = X.map(it => @[Value(value: it[0]), Value(value: it[1])])
       yv = y.map(it => Value(value: it))
 
+  proc loss(): (Value, float64) =
+    let
       scores = Xv.map(x => m.forward(x)[0])
 
       losses = zip(yv, scores).map(it => ((-it[0])*it[1] + 1.0).relu())
