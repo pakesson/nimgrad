@@ -63,10 +63,10 @@ when isMainModule:
     for p in m.parameters():
       p.value -= lr * p.grad
 
-    echo &"Step {i}, loss {totalLoss.value}, accuracy {accuracy*100.float}%"
+    echo &"Step {i}, loss {totalLoss.value}, accuracy {accuracy*100.float:.4f}%"
 
   echo "Test split:"
   var yPredTest = xTest.map(x => m.forward(x)[0])
   (totalLoss, accuracy) = loss(yPredTest, yTest)
   echo &"Loss: {totalLoss.value}"
-  echo &"Accuracy: {accuracy*100.float}%"
+  echo &"Accuracy: {accuracy*100.float:.4f}%"
